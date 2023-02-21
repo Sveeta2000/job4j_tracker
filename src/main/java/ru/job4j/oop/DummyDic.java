@@ -1,0 +1,12 @@
+package ru.job4j.oop;
+
+/**
+ * @author sveet
+ * @date 21.02.2023
+ */
+public class DummyDic {
+
+    public String engToRus(String eng) {
+        return "Неизвестное слово. " + eng;
+    }
+}
