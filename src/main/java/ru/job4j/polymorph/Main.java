@@ -6,10 +6,16 @@ package ru.job4j.polymorph;
  */
 public class Main {
     public static void main(String[] args) {
-        SportCar sportCar = new SportCar();
-        Vehicle vehicle = sportCar;
-        Fuel fuel = sportCar;
-        vehicle.changeGear();
-        fuel.refill();
+        Vehicle bus = new Bus();
+        Vehicle bus2 = new Bus();
+        Vehicle plane = new Plane();
+        Vehicle plane2 = new Plane();
+        Vehicle train = new Train();
+        Vehicle train2 = new Train();
+        Vehicle[] vehicles = {bus, bus2, plane, plane2, train, train2};
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle.getClass().getSimpleName());
+            vehicle.move();
+        }
     }
 }
