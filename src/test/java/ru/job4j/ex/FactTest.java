@@ -22,4 +22,11 @@ class FactTest {
         );
         assertThat(exception.getMessage()).isEqualTo("N can't be less than 0");
     }
+
+    @Test
+    public void calcWhen3Then6() {
+        int expected = 6;
+        int result = new Fact().calc(3);
+        assertThat(result).isEqualTo(expected);
+    }
 }
