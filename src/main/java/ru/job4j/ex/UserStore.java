@@ -11,6 +11,7 @@ public class UserStore {
         for (User user : users) {
             if (username.equals(user.getUsername())) {
                 result = user;
+                break;
             }
         }
         if (result == null) {
