@@ -12,13 +12,12 @@ public final class SingleTracker {
 
     private static SingleTracker singleTracker = null;
 
-    private SingleTracker(Tracker tracker) {
-        this.tracker = tracker;
+    private SingleTracker() {
     }
 
     public SingleTracker getSingleTracker() {
         if (singleTracker == null) {
-            singleTracker = new SingleTracker(tracker);
+            singleTracker = new SingleTracker();
         }
         return singleTracker;
     }
