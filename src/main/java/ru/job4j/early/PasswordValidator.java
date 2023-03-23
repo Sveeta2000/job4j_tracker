@@ -13,60 +13,43 @@ public class PasswordValidator {
         if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password should be length [8, 32]");
         }
-        if (!hasUpperCase(password)) {
+        boolean hasUpper = false;
+        boolean hasLower = false;
+        boolean hasDigit = false;
+        boolean hasSpecial = false;
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isUpperCase(password.charAt(i))) {
+                hasUpper = true;
+                continue;
+            }
+            if (Character.isLowerCase(password.charAt(i))) {
+                hasLower = true;
+                continue;
+            }
+            if (Character.isDigit(password.charAt(i))) {
+                hasDigit = true;
+                continue;
+            }
+            if (!Character.isWhitespace(password.charAt(i))) {
+                hasSpecial = true;
+            }
+        }
+        if (!hasUpper) {
             throw new IllegalArgumentException("Password should contain at least one uppercase letter");
         }
-        if (!hasLowerCase(password)) {
+        if (!hasLower) {
             throw new IllegalArgumentException("Password should contain at least one lowercase letter");
         }
-        if (!hasDigit(password)) {
+        if (!hasDigit) {
             throw new IllegalArgumentException("Password should contain at least one figure");
         }
-        if (!hasSpecialSymbol(password)) {
+        if (!hasSpecial) {
             throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
         if (hasTabooWords(password)) {
             throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
         }
         return password;
-    }
-
-    private static boolean hasUpperCase(String str) {
-        for (char symbol : str.toCharArray()) {
-            if (Character.isUpperCase(symbol)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean hasLowerCase(String str) {
-        for (char symbol : str.toCharArray()) {
-            if (Character.isLowerCase(symbol)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean hasDigit(String str) {
-        for (char symbol : str.toCharArray()) {
-            if (Character.isDigit(symbol)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean hasSpecialSymbol(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            if (!Character.isDigit(str.charAt(i))
-                && !Character.isLetter(str.charAt(i))
-                && !Character.isWhitespace(str.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private static boolean hasTabooWords(String str) {
