@@ -27,7 +27,7 @@ public class Airbus {
     }
 
     public void printCountEngine() {
-        int countEngine = "A380".equals(name) ? 4 : 2;
+        int countEngine = "A380".equals(name) ? 4 : COUNT_ENGINE;
         System.out.println("Количество двигателей равно: " + countEngine);
     }
 
