@@ -83,7 +83,7 @@ class StartUITest {
         actions.add(new DeleteAction(out));
         actions.add(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findById(id).getName()).isEqualTo("Item left");
+        assertThat(tracker.findById(id)).isNull();
     }
 
     @Test
