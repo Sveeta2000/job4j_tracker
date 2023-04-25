@@ -11,7 +11,9 @@ public class UsageMap {
     public static void main(String[] args) {
         HashMap<String, String> contacts = new HashMap<>();
         contacts.put("svetaaa@mail.ru", "Sveta Kashina");
+        contacts.put("svetaaa@mail.ru", "Sveta");
         contacts.put("parsentev@yandex.ru", "Petr Arsentev");
+        contacts.put("parsentev@yandex.ru", "Petr");
         for (String key : contacts.keySet()) {
             System.out.println(key + " = " + contacts.get(key));
         }
