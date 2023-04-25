@@ -20,19 +20,16 @@ public class BankService {
     }
 
     public boolean deleteUser(String passport) {
-        User user = findByPassport(passport);
-        return users.remove(user, users.get(user));
+        return users.remove(new User(passport, "")) != null;
     }
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (user == null) {
-            return;
-        }
-        List<Account> accountList = users.get(user);
-        if (!accountList.contains(account)) {
-            accountList.add(account);
-            users.put(user, accountList);
+        if (user != null) {
+            List<Account> accountList = users.get(user);
+            if (!accountList.contains(account)) {
+                accountList.add(account);
+            }
         }
     }
 
@@ -49,13 +46,12 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        if (user == null) {
-            return null;
-        }
-        List<Account> accountsList = users.get(user);
-        for (Account account : accountsList) {
-            if (account.getRequisite().equals(requisite)) {
-                return account;
+        if (user != null) {
+            List<Account> accountsList = users.get(user);
+            for (Account account : accountsList) {
+                if (account.getRequisite().equals(requisite)) {
+                    return account;
+                }
             }
         }
         return null;
