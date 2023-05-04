@@ -63,12 +63,6 @@ public class Account {
         this.balance = balance;
     }
 
-    /**
-     * Метод позволяет сравнить два счёта на основании их реквизитов
-     * @param o объект, с которым сравнивается счёт
-     * @return возвращает true если счёт и объект о равны,
-     *         false если счёт и объект о не равны, или объект о равен null
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -81,10 +75,6 @@ public class Account {
         return Objects.equals(requisite, account.requisite);
     }
 
-    /**
-     * Метод позволяет сгенерировать хэшкод объекта по полю реквизиты
-     * @return возвращает хэшкод в виде числового значения
-     */
     @Override
     public int hashCode() {
         return Objects.hash(requisite);

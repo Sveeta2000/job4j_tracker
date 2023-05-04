@@ -62,12 +62,6 @@ public class User {
         this.username = username;
     }
 
-    /**
-     * Метод позволяет сравнить двух пользователей на основании их паспортов
-     * @param o объект, с которым сравнивается пользователь
-     * @return возвращает true если пользователь и объект о равны,
-     *         false если пользователь и объект о не равны, или объект о равен null
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -80,10 +74,6 @@ public class User {
         return Objects.equals(passport, user.passport);
     }
 
-    /**
-     * Метод позволяет сгенерировать хэшкод объекта по полю паспорт
-     * @return возвращает хэшкод в виде числового значения
-     */
     @Override
     public int hashCode() {
         return Objects.hash(passport);
