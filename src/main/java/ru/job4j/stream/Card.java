@@ -23,5 +23,13 @@ public class Card {
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public String toString() {
+        return "Card{"
+                + "suit=" + suit
+                + ", value=" + value
+                + '}';
+    }
 }
 
