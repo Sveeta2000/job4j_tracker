@@ -10,6 +10,7 @@ public class AppleStore {
     private final Queue<Customer> queue;
 
     private final int count;
+    private int counts;
 
     public AppleStore(Queue<Customer> queue, int count) {
         this.queue = queue;
