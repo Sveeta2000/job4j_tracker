@@ -8,5 +8,5 @@ public interface UserAction {
 
     String name();
 
-    boolean execute(Input input, Tracker tracker);
+    boolean execute(Input input, Store store);
 }
