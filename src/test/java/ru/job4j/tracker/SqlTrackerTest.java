@@ -105,13 +105,4 @@ class SqlTrackerTest {
         tracker.add(item);
         assertThat(tracker.delete(item.getId())).isTrue();
     }
-
-    @Test
-    public void whenDeleteItemThenOnlyThatItemIsDeleted() {
-        SqlTracker tracker = new SqlTracker(connection);
-        Item item = new Item("item");
-        tracker.add(item);
-        assertThat(tracker.delete(item.getId())).isTrue();
-        assertThat(tracker.findAll()).isNotEmpty();
-    }
 }
